@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { View } from "react-native";
-import ListingScreen from "./app/screens/ListingScreen";
+
+import LoginScreen from "./app/screens/LoginScreen";
 
 export default function App() {
-  return (
-    <ListingScreen></ListingScreen>
-  );
+  const [category, setCategory] = useState();
+
+  return <LoginScreen />;
 }
