@@ -7,8 +7,12 @@ function Card({ title, subTitle, image }) {
     <TouchableOpacity style={styles.card}>
       <Image style={styles.image} source={image}></Image>
       <View style={styles.detailsContainer}>
-        <Text style={styles.title}>{title}</Text>
-        <Text style={styles.subTitle}>{subTitle}</Text>
+        <Text numberOfLines={3} style={styles.title}>
+          {title}
+        </Text>
+        <Text numberOfLines={1} style={styles.subTitle}>
+          {subTitle}
+        </Text>
       </View>
     </TouchableOpacity>
   );

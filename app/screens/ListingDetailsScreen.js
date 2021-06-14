@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, Image, StyleSheet } from "react-native";
 
 import AppText from "../components/AppText";
@@ -47,7 +47,7 @@ const styles = StyleSheet.create({
   },
   userContainer: {
     marginVertical: 40,
-    marginHorizontal: 20
+    marginHorizontal: 20,
   },
 });
 
