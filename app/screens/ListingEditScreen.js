@@ -7,6 +7,7 @@ import AppForm from "../components/AppForm";
 import AppFormField from "../components/AppFormField";
 import SubmitButton from "../components/SubmitButton";
 import AppFormPicker from "../components/AppFormPicker";
+import CategoryPickerItem from "../components/CategoryPickerItem";
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(3).label("Title"),
@@ -19,14 +20,44 @@ const categories = [
   {
     label: "Furniture",
     value: 1,
+    backgroundColor: "#fc5c65",
+    icon: "floor-lamp",
   },
   {
-    label: "Clothing",
+    label: "Cars",
     value: 2,
+    backgroundColor: "#fd9644",
+    icon: "car",
   },
   {
     label: "Cameras",
     value: 3,
+    backgroundColor: "#fed330",
+    icon: "camera",
+  },
+  {
+    label: "Games",
+    value: 4,
+    backgroundColor: "#26de81",
+    icon: "cards",
+  },
+  {
+    label: "Clothing",
+    value: 5,
+    backgroundColor: "#2bcbba",
+    icon: "shoe-heel",
+  },
+  {
+    label: "Sports",
+    value: 6,
+    backgroundColor: "#45aaf2",
+    icon: "basketball",
+  },
+  {
+    label: "Movies & Music",
+    value: 7,
+    backgroundColor: "#4b7bec",
+    icon: "headphones",
   },
 ];
 
@@ -49,11 +80,15 @@ function ListingEditScreen(props) {
           maxLength={8}
           keyboardType="numeric"
           placeholder="Price"
+          style={styles.price}
         />
         <AppFormPicker
           items={categories}
           name="category"
           placeholder="Category"
+          numberOfColumns={3}
+          PickerItemComponent={CategoryPickerItem}
+          style={styles.category}
         />
         <AppFormField
           name="description"
@@ -71,6 +106,12 @@ function ListingEditScreen(props) {
 const styles = StyleSheet.create({
   container: {
     padding: 15,
+  },
+  price: {
+    width: "30%",
+  },
+  category: {
+    width: "45%",
   },
 });
 

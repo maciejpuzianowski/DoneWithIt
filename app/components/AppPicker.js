@@ -15,13 +15,22 @@ import defaultStyles from "../config/styles";
 import Screen from "./Screen";
 import PickerItem from "./PickerItem";
 
-function AppPicker({ items, icon, onSelectItem, placeholder, selectedItem }) {
+function AppPicker({
+  items,
+  icon,
+  onSelectItem,
+  placeholder,
+  numberOfColumns = 1,
+  PickerItemComponent = { PickerItem },
+  selectedItem,
+  style,
+}) {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-        <View style={styles.container}>
+        <View style={[styles.container, style]}>
           {icon && (
             <MaterialCommunityIcons
               name={icon}
@@ -56,10 +65,11 @@ function AppPicker({ items, icon, onSelectItem, placeholder, selectedItem }) {
           </TouchableOpacity>
           <FlatList
             data={items}
+            numColumns={numberOfColumns}
             keyExtractor={(item) => item.value.toString()}
             renderItem={({ item }) => (
-              <PickerItem
-                label={item.label}
+              <PickerItemComponent
+                item={item}
                 onPress={() => {
                   setModalVisible(false);
                   onSelectItem(item);
