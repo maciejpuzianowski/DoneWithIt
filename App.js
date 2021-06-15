@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import { View } from "react-native";
+import React, { useEffect, useState } from "react";
+import { View, Button, Image } from "react-native";
+import * as ImagePicker from "expo-image-picker";
 
-import Screen from "./app/components/Screen";
 import ListingEditScreen from "./app/screens/ListingEditScreen";
-import MessagesScreen from "./app/screens/MessagesScreen";
 
 export default function App() {
   return <ListingEditScreen></ListingEditScreen>;
